@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var dash = require('./routes/dash');
+var logout = require('./routes/logout');
 // var createSchedule = require('./routes/schedule');
 // var showSchedule = require('./routes/results');
 
@@ -28,6 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/dash', dash);
+app.use('/logout', logout)
 // app.use('/create', createSchedule);
 // app.use('/result', showSchedule);
 
