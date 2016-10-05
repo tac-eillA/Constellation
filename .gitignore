@@ -1,5 +1,24 @@
-.DS_Store
-node_modules
-.Trashes
+#################################
+# Apple-specific Files / Folders
+#################################
+**/.DS_Store
+**/.Trashes
+
+##########################
+# Node.js Files / Folders
+##########################
 npm-debug.log
+node_modules
+bower_components
+
+###############################
+# IDE-specific Files / Folders
+###############################
+.idea
+.vscode
+**/.project
+
+####################################
+# Additional Random Files / Folders
+####################################
 constellation.png
