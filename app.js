@@ -21,12 +21,25 @@ app.use(cookieParser());
 app.use(express.static(__dirname + '/public'));
 
 
+
+app.post('/login', function(req, res) {
+    var name = req.body.username;
+    var password = req.body.password;
+    if(name === 'admin' && password === 'constellation') {
+        res.redirect('thankyou.html');
+    }
+    // ...
+});
+
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
+
+
 
 // error handlers
 
