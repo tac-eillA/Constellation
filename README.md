@@ -25,13 +25,13 @@ If you want to use Docker to run and test this application, we have included a D
 
 Once you have Docker installed and setup, run the following line in terminal from the project root:
 
-> **$ docker build -t <your username>/constellation .**
+> **$ docker build -t username/constellation .**
 
 This will build your docker image which can be run using the following command:
 
-> **$ docker run -p 8080:3000 -d <your username>/constellation**
+> **$ docker run -p 8080:3000 -d username/constellation**
 
-This runs your docker image with the name constellation and binds the port 3000 within your docker image to port 8080 on your local machine. 
+This runs your docker image with the name constellation and binds the port 3000 within your docker image to port 8080 on your local machine.
 
 > Note that the html2jade.zip file will need to be unziped and installed/run in the same way but inside its own directory. It was origianlly a seperate project that I added to make contribution easier for non-jade programmers.
 
