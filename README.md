@@ -3,7 +3,7 @@
 
 **Constellation** is an open source platform for building easy to use and update scheduling systems for schools.  
 
-This project is built on top of node js, express, jade, and postgreSQL to make editing and tailoring easy for programmers both experienced and new. We also strive to keep the user interface as simple as possible, therefore little to no base CSS is provided to allow customization without worry of overrides. (This may change as I get tired of how base html input boxes look)
+This project is built on top of Node JS, Express, React, and PostgreSQL to make editing and tailoring easy for programmers both experienced and new. We also strive to keep the user interface as simple as possible, therefore little to no base CSS is provided to allow customization without worry of overrides. (This may change as I get tired of how base html input boxes look)
 
 # Installation
 
@@ -33,8 +33,6 @@ This will build your docker image which can be run using the following command:
 
 This runs your docker image with the name constellation and binds the port 3000 within your docker image to port 8080 on your local machine.
 
-> Note that the html2jade.zip file will need to be unziped and installed/run in the same way but inside its own directory. It was origianlly a seperate project that I added to make contribution easier for non-jade programmers.
-
 # Contributing
 
 I am more than happy to welcome anyone and everyone who wants to contribute to this project. To do so, just fork the respository, create your changes, and submit a pull request back.
@@ -52,5 +50,4 @@ If you do want to contribute or are already contributing to this project here ar
 3. A way for sysadmins to easily be able to add classes, students, etc via a csv
 4. The actual dashboard design
 5. Database queries within the core node app
-6. Look into conversion to React or Angular 1.X over the jade system in place now 
-7. If you think of anything else you are more than welcome to open an issue
+6. If you think of anything else you are more than welcome to open an issue
