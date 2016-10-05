@@ -9,7 +9,11 @@ router.get('/', function(req, res, next) {
 router.post('/', function (req, res) {
     console.log(req.body.username);
     console.log(req.body.password);
-    res.send('Post page');
+    if (req.body.username === 'admin' && req.body.password === 'constellation') {
+        router.get('./dash', function(req, res, next) {
+          res.render('dash', { title: 'Admin' });
+        });
+    }
 });
 
 module.exports = router;
