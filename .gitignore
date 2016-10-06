@@ -11,6 +11,12 @@ npm-debug.log
 node_modules
 bower_components
 
+############################
+# Sequelize Files / Folders
+############################
+config/postgres-config.js
+config/server-config.js
+
 ###############################
 # IDE-specific Files / Folders
 ###############################
