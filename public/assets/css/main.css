@@ -128,7 +128,7 @@
 		font-weight: 300;
 		line-height: 2;
 		letter-spacing: 0.2em;
-		
+
 	}
 
 		@media screen and (max-width: 1680px) {
@@ -738,6 +738,8 @@
 				margin: 0 auto;
 				border-radius: 100%;
 				box-shadow: 0 0 0 1.5em #ffffff;
+				max-width: 50%;
+				max-height: 50%;
 			}
 
 			/*#main .avatar:before {
@@ -781,13 +783,13 @@
 
 	}
 	#stage2 {
-		
+
 	}
 	#stage3 {
-		
+
 	}
 	#legal-info {
-		
+
 	}
 
 	#footer {

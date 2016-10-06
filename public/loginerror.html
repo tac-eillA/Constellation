@@ -28,7 +28,7 @@
 
                             <hr />
 
-							<p>You have successfully logged in!<br>Redirecting you to your dashboard....</p>
+							<p><b>There was an error logging in<br>redirecting you back to the login page......</b></p>
 						</header>
 
 					</section>
@@ -52,9 +52,8 @@
 			</script>
 
 			<script>
-			var v1 = parent.document.URL.substring(parent.document.URL.indexOf('?'), parent.document.URL.length);
 				setTimeout(function() {
-					window.location = "dash.html" + v1;
+					window.location = "index.html";
 				}, 3000)
 			</script>
 
