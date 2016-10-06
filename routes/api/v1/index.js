@@ -1,0 +1,11 @@
+var express = require('express');
+var router = express.Router({ mergeParams: true });
+
+var policy = require('../../../policies');
+
+// Require the User routes.
+router.route('/users')
+    .get(/*policy.auth.isAuthenticated, */require('./users/GET_GetAllUsers'));
+
+// Export the express application routes.
+module.exports = router;
