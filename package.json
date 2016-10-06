@@ -11,16 +11,13 @@
     "schedules",
     "schools"
   ],
-  "engines": {
-    "node": "4.x.x"
-  },
   "scripts": {
     "start": "npm run npm:prune && npm run npm:install && npm run server:start",
     "dev": "npm run npm:prune && npm run npm:install && npm run server:start",
     "test": "npm run npm:prune && npm run npm:install && npm run routes:test",
     "npm:prune": "npm prune",
     "npm:install": "npm install",
-    "server:start": "node server",
+    "server:start": "./bin/www",
     "routes:test": "./node_modules/.bin/mocha \"routes/**/*.spec.js\""
   },
   "dependencies": {

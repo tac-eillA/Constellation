@@ -28,7 +28,12 @@ app.post('/login', function(req, res) {
     if(name === 'admin' && password === 'constellation') {
         res.redirect('thankyou.html');
     }
-    // ...
+    else {
+        res.status(400);
+        setTimeout(function(){
+            res.redirect('index.html');
+        }, 3000);
+    }
 });
 
 
