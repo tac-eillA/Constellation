@@ -12,6 +12,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<script src="https://use.fontawesome.com/91f06324d5.js"></script>
 		<script src="assets/js/jquery-3.1.0.min.js"></script>
+		<script src="assets/js/vue.js"></script>
 		<link rel="stylesheet" href="assets/css/main.css" />
 
 	</head>
@@ -25,10 +26,10 @@
 						<header>
 							<span class="avatar"><img src="http://trevorsnodgrass.com/images/constellation.png" alt="" /></span>
 							<h1>Constellation</h1>
-
                             <hr />
-
-							<p>You have successfully logged in!<br>Redirecting you to your dashboard....</p>
+							<div id="app">
+  								{{ message }}
+							</div>
 						</header>
 
 					</section>
@@ -50,12 +51,14 @@
 					document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
 				}
 			</script>
-
 			<script>
-			var v1 = parent.document.URL.substring(parent.document.URL.indexOf('?'), parent.document.URL.length);
-				setTimeout(function() {
-					window.location = "dash.html" + v1;
-				}, 3000)
+			var v1 = parent.document.URL.substring(parent.document.URL.indexOf('=') +1, parent.document.URL.length);
+			var app = new Vue({
+				el: '#app',
+				data: {
+					message: 'Hello ' + v1
+				}
+			});
 			</script>
 
 

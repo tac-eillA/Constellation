@@ -12,7 +12,7 @@ var app = express();
 
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -22,17 +22,16 @@ app.use(express.static(__dirname + '/public'));
 
 
 
+
+// starts post and get commands for each page with proper redirects and form handing.
 app.post('/login', function(req, res) {
     var name = req.body.username;
     var password = req.body.password;
     if(name === 'admin' && password === 'constellation') {
-        res.redirect('thankyou.html');
+        res.redirect('thankyou.html?user=' + name);
     }
     else {
-        res.status(400);
-        setTimeout(function(){
-            res.redirect('index.html');
-        }, 3000);
+        res.redirect('loginerror.html');
     }
 });
 
