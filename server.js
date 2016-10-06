@@ -30,6 +30,7 @@ modelsConfig.sequelize
     .then(_InitializeMiddleware)
     .then(_InitializeSession)
     .then(_BindToRequestObject)
+    .then(_BindRoutes)
     .then(_StartServer)
     .catch(_HandleErrors);
 
@@ -126,6 +127,30 @@ function _BindToRequestObject() {
         });
 
         // Resolve the promise.
+        return resolve();
+    });
+}
+
+/**
+ *
+ * @returns {Promise}
+ * @private
+ */
+function _BindRoutes() {
+    return new Promise(function(resolve, reject) {
+        // Bind the public API routes.
+        app.use('/api', require('./routes/api'));
+
+        // Bind the private API routes.
+        //app.use('/private', require('./routes/private'));
+
+        // Bind the 404 (Not Found) Error handler.
+        app.use(require('./routes/errors/NotFound.js'));
+
+        // Bind the non-404 / non-200 Error handler.
+        app.use(require('./routes/errors/RouteError.js'));
+
+        // Resolve the Promise.
         return resolve();
     });
 }
