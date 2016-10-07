@@ -23,6 +23,12 @@ config/server-config.js
 .idea
 .vscode
 **/.project
+*.iml
+
+###############################
+# Java Class Files
+###############################
+target/
 
 ####################################
 # Additional Random Files / Folders
