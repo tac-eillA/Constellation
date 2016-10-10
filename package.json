@@ -17,7 +17,7 @@
     "test": "npm run npm:prune && npm run npm:install && npm run routes:test",
     "npm:prune": "npm prune",
     "npm:install": "npm install",
-    "server:start": "./bin/www",
+    "server:start": "node server",
     "routes:test": "./node_modules/.bin/mocha \"routes/**/*.spec.js\""
   },
   "dependencies": {

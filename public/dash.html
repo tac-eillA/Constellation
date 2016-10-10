@@ -28,7 +28,9 @@
 							<h1>Constellation</h1>
                             <hr />
 							<div id="app">
-  								{{ message }}
+  								{{ message }} <br>
+								{{ secondMess }} <br>
+								{{ thirdMess }}
 							</div>
 						</header>
 
@@ -56,7 +58,9 @@
 			var app = new Vue({
 				el: '#app',
 				data: {
-					message: 'Hello ' + v1
+					message: 'Hello ' + v1,
+					secondMess: 'This will be the user dashboard where they can manage their students and view course openings.',
+					thirdMess: 'Part of me thinks it would be smart to set it up so that administrators setup schedules via course number and go by column to select times and teachers.'
 				}
 			});
 			</script>
