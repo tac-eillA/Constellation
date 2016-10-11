@@ -141,6 +141,9 @@ function _BindRoutes() {
         // Bind the public API routes.
         app.use('/api', require('./routes/api'));
 
+        // Bind the authentication routes.
+        app.use(require('./routes/auth'));
+
         // Bind the private API routes.
         //app.use('/private', require('./routes/private'));
 
