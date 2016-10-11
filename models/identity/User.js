@@ -58,9 +58,9 @@ module.exports = function(sequelize, DataTypes) {
                         id: this.getDataValue('id'),
                         username: this.getDataValue('username'),
                         emailAddress: this.getDataValue('emailAddress'),
-                        createdTs: this.getDataValue('createdAt'),
-                        lastModifiedTs: this.getDataValue('updatedAt'),
-                        deletedTs: this.getDataValue('deletedAt')
+                        createdAt: this.getDataValue('created_ts'),
+                        lastModifiedAt: this.getDataValue('last_modified_ts'),
+                        deletedAt: this.getDataValue('deleted_ts')
                     };
                 }
             }
@@ -80,7 +80,7 @@ module.exports = function(sequelize, DataTypes) {
             updatedAt: 'last_modified_ts',
             // Set the column name for the "deletedAt" timestamp for when the record is supposed to be deleted (halted by the paranoid attribute below).
             deletedAt: 'deleted_ts',
-            // Set the paranoid attribute so that the records are never truly deleted.
+            // Set the paranoid attribute so that the records are never truly deleted (the deleted_ts just holds when the user object was "deleted").
             paranoid: true,
 
             // Hooks
