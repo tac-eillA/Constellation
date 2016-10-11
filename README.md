@@ -54,11 +54,14 @@ To run the Backend (on a mac at least) run from the base Constellation directory
 
 > **source runBackend**
 
+> In addition, PostgreSQL must already be installed with the database information for your Postgres database in the postgres-config.js file
+
 # Installation using Docker
 
 If you want to use Docker to run and test this application, we have included a Dockerfile to do so.
 
 > Note that you must have docker installed and setup in order to use this so unless you are comfortable with using docker I would simply use the standard node js setup for testing. Eventually we will release a better integrated Docker version of this application.
+
 
 Once you have Docker installed and setup, run the following line in terminal from the project root:
 
