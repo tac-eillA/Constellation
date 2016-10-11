@@ -18,9 +18,13 @@
     "build": "npm run npm:prune && npm run npm:install && npm run db:schema && npm run server",
     "npm:prune": "npm prune",
     "npm:install": "npm install",
+<<<<<<< HEAD
+    "server:start": "node server",
+=======
     "db:schema": "node ./models/setup.js",
     "server:start": "./bin/www",
     "server": "node server",
+>>>>>>> 7c7f8be1e887d9171fa9202376ec950aa68a499f
     "routes:test": "./node_modules/.bin/mocha \"routes/**/*.spec.js\""
   },
   "dependencies": {
