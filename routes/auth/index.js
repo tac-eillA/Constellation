@@ -10,7 +10,7 @@ var passport = require('../../config/passport.js');
 // Bind the routes.
 api.route('/auth')
     .get(require('./GET_ValidateSession'))
-    .post(passport.authenticate('local-email'), require('./POST_CreateSession'))
+    .post(passport.authenticate('local-username'), require('./POST_CreateSession'))
     .delete(require('./DELETE_DestroySession'));
 
 // Export the API routes that were created above.
