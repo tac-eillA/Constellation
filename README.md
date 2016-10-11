@@ -10,6 +10,7 @@ This project is built on top of Node JS, Express, React, and PostgreSQL to make 
 * You have the [latest v4.x.x of Node.js](https://nodejs.org/en/download/releases/) installed.
 * Ensure that you have the connection information for the PostgreSQL database for the application (either remote or local).
 * Ensure that your database's service account has full access to the database.
+
 ### Install and Run (local-only development)
 1. Clone the repository.
 2. Create the PostgreSQL configuration file:
@@ -22,6 +23,7 @@ This project is built on top of Node JS, Express, React, and PostgreSQL to make 
     3. Modify the `server-config.js` file and add your server's hostname and port information.
 4. Open a Node.js Command Prompt and run the following command:
     * `npm run dev`
+
 ### Install and Run ([OpenShift](https://www.openshift.com/))
 * UPDATE LATER
 
