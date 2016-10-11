@@ -15,7 +15,7 @@
 #   This will run the container and expose the Docker port
 #   of 3000 to the localhost on port 8080 (or to whatever you
 #   bind it to on the run command
-#:
+#
 
 
 FROM node:latest

@@ -84,7 +84,6 @@ All pull requests will be reviewed and accepted by myself and I will try to get 
 If you do want to contribute or are already contributing to this project here are a list of open issues/things that need to be done in order to continue onto the next stage.
 
 1. Login verification (so that user's can't just do to /dash to enter the dashboard without putting in a valid username and password.
-2. Creating PostgreSQL databases models for login, students, and classes as well as test database info to be used as a proof of concept
 3. A way for sysadmins to easily be able to add classes, students, etc via a csv
 4. The actual dashboard design
 5. Database queries within the core node app
