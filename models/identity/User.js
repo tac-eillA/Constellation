@@ -13,17 +13,17 @@ module.exports = function(sequelize, DataTypes) {
                 allowNull: false
             },
             username: {
-                type: DataTypes.STRING,
+                type: DataTypes.STRING(255),
                 field: 'username',
                 unique: true,
                 allowNull: false,
                 validate: {
                     notEmpty: {
-                        msg: 'The username value must not be empty.'
+                        msg: 'The username value must not be empty'
                     },
-                    min: {
-                        args: 8,
-                        msg: 'The username value must be at least 8 characters.'
+                    len: {
+                        args: [8, 255],
+                        msg: 'The username value must be at least 8 characters'
                     }
                 }
             },
@@ -34,10 +34,10 @@ module.exports = function(sequelize, DataTypes) {
                 allowNull: false,
                 validate: {
                     notEmpty: {
-                        msg: 'The emailAddress value must not be empty.'
+                        msg: 'The emailAddress value must not be empty'
                     },
                     isEmail: {
-                        msg: 'The emailAddress value must be in email form (user@company.com).'
+                        msg: 'The emailAddress value must be in email form (user@company.com)'
                     }
                 }
             },
@@ -47,7 +47,7 @@ module.exports = function(sequelize, DataTypes) {
                 allowNull: false,
                 validate: {
                     notEmpty: {
-                        msg: 'The password value must not be empty.'
+                        msg: 'The password value must not be empty'
                     }
                 }
             },
