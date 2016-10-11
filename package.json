@@ -13,11 +13,12 @@
   ],
   "scripts": {
     "start": "npm run npm:prune && npm run npm:install && npm run server:start",
-    "dev": "npm run npm:prune && npm run npm:install && npm run server",
+    "dev": "npm run npm:prune && npm run npm:install && npm run db:schema && npm run server",
     "test": "npm run npm:prune && npm run npm:install && npm run routes:test",
-    "build": "npm run npm:prune && npm run npm:install && npm run server",
+    "build": "npm run npm:prune && npm run npm:install && npm run db:schema && npm run server",
     "npm:prune": "npm prune",
     "npm:install": "npm install",
+    "db:schema": "node ./models/setup.js",
     "server:start": "./bin/www",
     "server": "node server",
     "routes:test": "./node_modules/.bin/mocha \"routes/**/*.spec.js\""
