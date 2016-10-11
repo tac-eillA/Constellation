@@ -1,0 +1,5 @@
+cd Backend/
+mvn clean install -DskipTests
+java -jar calculation/target/calculation-1.0-SNAPSHOT-exec.jar&
+java -jar upload/target/upload-1.0-SNAPSHOT-exec.jar&
+cd ..
