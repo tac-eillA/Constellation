@@ -9,7 +9,7 @@ var req,
 
 describe('API v1', function() {
     describe('=> Users', function() {
-        describe('=> GetAllUsers (GET /api/v1/users', function() {
+        describe('=> GetAllUsers (GET /api/v1/users)', function() {
             // Before each test...
             beforeEach(function(next) {
                 // Set the request and response objects equal to an empty object.
