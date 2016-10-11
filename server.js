@@ -27,12 +27,27 @@ var pgConfig = require('./config/postgres-config.js'),
 // Launch the promise chain to build the application structure.
 modelsConfig.sequelize
     .sync({ logging: console.log })
+    .then(_SetCustomHeaders)
     .then(_InitializeMiddleware)
     .then(_InitializeSession)
     .then(_BindToRequestObject)
     .then(_BindRoutes)
     .then(_StartServer)
     .catch(_HandleErrors);
+
+/**
+ *
+ * @returns {Promise}
+ * @private
+ */
+function _SetCustomHeaders() {
+    return new Promise(function(resolve, reject) {
+        // Remove the Express "X-Powered-By" header that is sent by default.
+        app.disable('x-powered-by');
+
+        return resolve();
+    });
+}
 
 /**
  *
@@ -138,6 +153,10 @@ function _BindToRequestObject() {
  */
 function _BindRoutes() {
     return new Promise(function(resolve, reject) {
+
+        // Bind the authentication routes.
+        app.use(require('./routes/auth'));
+
         // Bind the public API routes.
         app.use('/api', require('./routes/api'));
 

@@ -13,17 +13,17 @@ module.exports = function(sequelize, DataTypes) {
                 allowNull: false
             },
             username: {
-                type: DataTypes.STRING,
+                type: DataTypes.STRING(255),
                 field: 'username',
                 unique: true,
                 allowNull: false,
                 validate: {
                     notEmpty: {
-                        msg: 'The username value must not be empty.'
+                        msg: 'The username value must not be empty'
                     },
-                    min: {
-                        args: 8,
-                        msg: 'The username value must be at least 8 characters.'
+                    len: {
+                        args: [8, 255],
+                        msg: 'The username value must be at least 8 characters'
                     }
                 }
             },
@@ -34,10 +34,10 @@ module.exports = function(sequelize, DataTypes) {
                 allowNull: false,
                 validate: {
                     notEmpty: {
-                        msg: 'The emailAddress value must not be empty.'
+                        msg: 'The emailAddress value must not be empty'
                     },
                     isEmail: {
-                        msg: 'The emailAddress value must be in email form (user@company.com).'
+                        msg: 'The emailAddress value must be in email form (user@company.com)'
                     }
                 }
             },
@@ -47,7 +47,7 @@ module.exports = function(sequelize, DataTypes) {
                 allowNull: false,
                 validate: {
                     notEmpty: {
-                        msg: 'The password value must not be empty.'
+                        msg: 'The password value must not be empty'
                     }
                 }
             },
@@ -58,9 +58,9 @@ module.exports = function(sequelize, DataTypes) {
                         id: this.getDataValue('id'),
                         username: this.getDataValue('username'),
                         emailAddress: this.getDataValue('emailAddress'),
-                        createdTs: this.getDataValue('createdAt'),
-                        lastModifiedTs: this.getDataValue('updatedAt'),
-                        deletedTs: this.getDataValue('deletedAt')
+                        createdAt: this.getDataValue('created_ts'),
+                        lastModifiedAt: this.getDataValue('last_modified_ts'),
+                        deletedAt: this.getDataValue('deleted_ts')
                     };
                 }
             }
@@ -80,7 +80,7 @@ module.exports = function(sequelize, DataTypes) {
             updatedAt: 'last_modified_ts',
             // Set the column name for the "deletedAt" timestamp for when the record is supposed to be deleted (halted by the paranoid attribute below).
             deletedAt: 'deleted_ts',
-            // Set the paranoid attribute so that the records are never truly deleted.
+            // Set the paranoid attribute so that the records are never truly deleted (the deleted_ts just holds when the user object was "deleted").
             paranoid: true,
 
             // Hooks

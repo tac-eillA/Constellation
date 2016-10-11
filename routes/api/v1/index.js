@@ -5,7 +5,8 @@ var policy = require('../../../policies');
 
 // Require the User routes.
 router.route('/users')
-    .get(/*policy.auth.isAuthenticated, */require('./users/GET_GetAllUsers'));
+    .get(/*policy.auth.isAuthenticated, */require('./users/GET_GetAllUsers'))
+    .post(require('./users/POST_CreateUser'));
 
 // Export the express application routes.
 module.exports = router;
