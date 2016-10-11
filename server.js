@@ -174,3 +174,15 @@ function _StartServer() {
 function _HandleErrors(e) {
     console.error(e.stack);
 }
+
+// starts post and get commands for each page with proper redirects and form handing.
+app.post('/login', function(req, res) {
+    var name = req.body.username;
+    var password = req.body.password;
+    if(name === 'admin' && password === 'constellation') {
+        res.redirect('thankyou.html?user=' + name);
+    }
+    else {
+        res.redirect('loginerror.html');
+    }
+});

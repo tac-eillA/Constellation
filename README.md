@@ -3,7 +3,7 @@
 
 **Constellation** is an open source platform for building easy to use and update scheduling systems for schools.  
 
-This project is built on top of Node JS, Express, React, and PostgreSQL to make editing and tailoring easy for programmers both experienced and new. We also strive to keep the user interface as simple as possible, therefore little to no base CSS is provided to allow customization without worry of overrides. (This may change as I get tired of how base html input boxes look)
+This project is built on top of Node JS, Express, VueJS, and PostgreSQL to make editing and tailoring easy for programmers both experienced and new. We also strive to keep the user interface as simple as possible, therefore little to no base CSS is provided to allow customization without worry of overrides. (This may change as I get tired of how base html input boxes look)
 
 # Installation
 ### Installation Pre-requisites
