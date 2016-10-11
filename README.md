@@ -6,15 +6,6 @@
 This project is built on top of Node JS, Express, React, and PostgreSQL to make editing and tailoring easy for programmers both experienced and new. We also strive to keep the user interface as simple as possible, therefore little to no base CSS is provided to allow customization without worry of overrides. (This may change as I get tired of how base html input boxes look)
 
 # Installation
-To install and get running simply clone the repo and make sure that you have node js installed and up to date, run:
-
-> **npm install**
-
-Then after all dependencies are installed, run:
-
-> **npm start**
-
-To start the app server on localhost:3000 (default but can be changed)
 ### Installation Pre-requisites
 * You have the [latest v4.x.x of Node.js](https://nodejs.org/en/download/releases/) installed.
 * Ensure that you have the connection information for the PostgreSQL database for the application (either remote or local).
