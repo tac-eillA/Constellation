@@ -11,10 +11,8 @@ var _ = require('lodash');
  * @returns res.status().json()
  */
 module.exports = function errorHandler(err, req, res, next) {
-    console.error(err.stack);
-
     // Create the default message.
-    let defaultMessage = 'There was an error on the server. If you continue to see this error message, please contact the support team.';
+    const defaultMessage = 'There was an error on the server. If you continue to see this error message, please contact the support team.';
 
     // If the CSRF token was invalid...
     if(_.eq(err.code, 'EBADCSRFTOKEN')) {
@@ -26,6 +24,19 @@ module.exports = function errorHandler(err, req, res, next) {
                 next: null
             },
             message: 'Invalid CSRF token.'
+        });
+
+        return next();
+    }
+    else if(_.eq(err.name, 'SequelizeUniqueConstraintError')) {
+        res.status(422);
+        res.json({
+            links: {
+                prev: null,
+                self: req.originalUrl,
+                next: null
+            },
+            message: 'The ' + err.errors[0].message + '.'
         });
 
         return next();
