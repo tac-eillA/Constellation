@@ -6,16 +6,24 @@
 This project is built on top of Node JS, Express, React, and PostgreSQL to make editing and tailoring easy for programmers both experienced and new. We also strive to keep the user interface as simple as possible, therefore little to no base CSS is provided to allow customization without worry of overrides. (This may change as I get tired of how base html input boxes look)
 
 # Installation
-
-To install and get running simply clone the repo and make sure that you have node js installed and up to date, run:
-
-> **npm install**
-
-Then after all dependencies are installed, run:
-
-> **npm start**
-
-To start the app server on localhost:3000 (default but can be changed)
+### Installation Pre-requisites
+* You have the [latest v4.x.x of Node.js](https://nodejs.org/en/download/releases/) installed.
+* Ensure that you have the connection information for the PostgreSQL database for the application (either remote or local).
+* Ensure that your database's service account has full access to the database.
+### Install and Run (local-only development)
+1. Clone the repository.
+2. Create the PostgreSQL configuration file:
+    1. Create a copy of the default PostgreSQL config file: `/dir_to_codebase/config/postgres-config.default.js`
+    2. Rename the copy to `postgres-config.js` and place it into the same directory (`/dir_to_codebase/config/`).
+    3. Modify the `postgres-config.js` file and add your database's configuration information.
+3. Create the server configuration file:
+    1. Create a copy of the default server config file: `/dir_to_codebase/config/server-config.default.js`
+    2. Rename the copy to `server-config.js` and place it into the same directory (`/dir_to_codebase/config/`).
+    3. Modify the `server-config.js` file and add your server's hostname and port information.
+4. Open a Node.js Command Prompt and run the following command:
+    * `npm run dev`
+### Install and Run ([OpenShift](https://www.openshift.com/))
+* UPDATE LATER
 
 # Installation using Docker
 
