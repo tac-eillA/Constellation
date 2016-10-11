@@ -6,16 +6,51 @@
 This project is built on top of Node JS, Express, React, and PostgreSQL to make editing and tailoring easy for programmers both experienced and new. We also strive to keep the user interface as simple as possible, therefore little to no base CSS is provided to allow customization without worry of overrides. (This may change as I get tired of how base html input boxes look)
 
 # Installation
+### Installation Pre-requisites
+* You have the [latest v4.x.x of Node.js](https://nodejs.org/en/download/releases/) installed.
+* Ensure that you have the connection information for the PostgreSQL database for the application (either remote or local).
+* Ensure that your database's service account has full access to the database.
+### Install and Run (local-only development)
+1. Clone the repository.
+2. Create the PostgreSQL configuration file:
+    1. Create a copy of the default PostgreSQL config file: `/dir_to_codebase/config/postgres-config.default.js`
+    2. Rename the copy to `postgres-config.js` and place it into the same directory (`/dir_to_codebase/config/`).
+    3. Modify the `postgres-config.js` file and add your database's configuration information.
+3. Create the server configuration file:
+    1. Create a copy of the default server config file: `/dir_to_codebase/config/server-config.default.js`
+    2. Rename the copy to `server-config.js` and place it into the same directory (`/dir_to_codebase/config/`).
+    3. Modify the `server-config.js` file and add your server's hostname and port information.
+4. Open a Node.js Command Prompt and run the following command:
+    * `npm run dev`
+### Install and Run ([OpenShift](https://www.openshift.com/))
+* UPDATE LATER
 
-To install and get running simply clone the repo and make sure that you have node js installed and up to date, run:
+The backend uses maven for its dependency management so if maven is installed and you are in the folder Backend
 
-> **npm install**
+> **mvn clean install**
 
-Then after all dependencies are installed, run:
+if you do not have the postgres docker image instance run
 
-> **npm start**
+> **docker pull postgres**
 
-To start the app server on localhost:3000 (default but can be changed)
+To start the postgres instance the first time only run
+
+> **docker run -i -t -p 5432:5432 --name postgres-db postgres**
+
+#Backend commands
+
+To stop the postgres docker image run
+
+> **docker stop postgres-db**
+
+To start the postgres docker image run
+
+> **docker start postgres-db**
+
+To run the Backend (on a mac at least) run from the base Constellation directory.
+> Note The easiest way to test it would be to run it from your IDE This is for deployment and for people who insist on making their lives difficult. With windows just follow the command in the file runBackend. the easiest way to stop the applications would be to type "jobs" and then fg each process and terminate it by hitting ^C.
+
+> **source runBackend**
 
 > In addition, PostgreSQL must already be installed with the database information for your Postgres database in the postgres-config.js file
 
@@ -53,4 +88,5 @@ If you do want to contribute or are already contributing to this project here ar
 3. A way for sysadmins to easily be able to add classes, students, etc via a csv
 4. The actual dashboard design
 5. Database queries within the core node app
-6. If you think of anything else you are more than welcome to open an issue
+6. implement Weighted Constraint Satisfaction to create the schedule.
+7. If you think of anything else you are more than welcome to open an issue

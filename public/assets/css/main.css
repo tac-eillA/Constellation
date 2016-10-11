@@ -736,10 +736,10 @@
 			#main .avatar img {
 				display: block;
 				margin: 0 auto;
-				border-radius: 100%;
+				border-radius: 30%;
 				box-shadow: 0 0 0 1.5em #ffffff;
-				max-width: 50%;
-				max-height: 50%;
+				max-width: 30%;
+				max-height: 30%;
 			}
 
 			/*#main .avatar:before {
