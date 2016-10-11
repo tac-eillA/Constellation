@@ -21,9 +21,11 @@ module.exports = function errorHandler(err, req, res, next) {
         res.status(errCodes[err.code].status);
         res.json({
             links: {
-                self: req.originalUrl
+                prev: null,
+                self: req.originalUrl,
+                next: null
             },
-            error: 'Invalid CSRF token.'
+            message: 'Invalid CSRF token.'
         });
 
         return next();
@@ -32,7 +34,9 @@ module.exports = function errorHandler(err, req, res, next) {
     res.status(err.status || 500);
     res.json({
         links: {
-            self: req.originalUrl
+            prev: null,
+            self: req.originalUrl,
+            next: null
         },
         message: (err.userMessage || defaultMessage)
     });
