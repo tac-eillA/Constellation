@@ -13,9 +13,10 @@
   ],
   "scripts": {
     "start": "npm run npm:prune && npm run npm:install && npm run server",
-    "dev": "npm run npm:prune && npm run npm:install && npm run db:schema && npm run server",
+    "dev": "npm run npm:prune && npm run npm:install && npm run genApiDocs && npm run db:schema && npm run server",
     "test": "npm run routes:test",
-    "build": "npm run npm:prune && npm run npm:install && npm run db:schema && npm run server",
+    "build": "npm run npm:prune && npm run npm:install && npm run genApiDocs && npm run db:schema && npm run server",
+    "genApiDocs": "./node_modules/.bin/apidoc -i routes/ -o public/api_docs/",
     "npm:prune": "npm prune",
     "npm:install": "npm install",
     "server:start": "node server",
@@ -45,6 +46,7 @@
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
+    "apidoc": "^0.16.1",
     "chai": "^3.5.0",
     "mocha": "^2.4.5",
     "sinon": "^1.17.4"
