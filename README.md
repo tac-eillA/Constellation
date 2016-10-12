@@ -1,5 +1,5 @@
 # Constellation
-![Constellation Logo](http://trevorsnodgrass.com/images/constellation.png)
+![Constellation Logo](http://tsnodgrass96.github.io/images/constellation.png)
 
 ![Travis Build Status](https://travis-ci.org/tsnodgrass96/Constellation.svg?branch=master)
 
