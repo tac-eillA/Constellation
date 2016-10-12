@@ -1,7 +1,8 @@
 # Constellation
-![Constellation Logo](http://trevorsnodgrass.com/images/constellation.png)
+![Constellation Logo](http://tsnodgrass96.github.io/images/constellation.png)
 
 ![Travis Build Status](https://travis-ci.org/tsnodgrass96/Constellation.svg?branch=master)
+[![Slack Status](http://slack.trevorsnodgrass.com/badge.svg)](https://trevorsnodgrass.com)
 
 **Constellation** is an open source platform for building easy to use and update scheduling systems for schools.  
 
