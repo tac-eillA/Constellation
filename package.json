@@ -41,12 +41,16 @@
     "pg": "^4.5.5",
     "pg-hstore": "^2.3.2",
     "sequelize": "^3.24.1",
-    "serve-static": "^1.10.2",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "serve-static": "^1.10.2"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^2.4.5",
     "sinon": "^1.17.4"
+  },
+  "repository": {
+    "url": "https://github.com/tsnodgrass96/Constellation.git",
+    "type": "git"
   }
 }
