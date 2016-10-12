@@ -14,7 +14,7 @@
   "scripts": {
     "start": "npm run npm:prune && npm run npm:install && npm run server",
     "dev": "npm run npm:prune && npm run npm:install && npm run genApiDocs && npm run db:schema && npm run server",
-    "test": "npm run routes:test",
+    "test": "npm run npm:prune && npm run npm:install && npm run routes:test",
     "build": "npm run npm:prune && npm run npm:install && npm run genApiDocs && npm run db:schema && npm run server",
     "genApiDocs": "./node_modules/.bin/apidoc -i routes/ -o public/api_docs/",
     "npm:prune": "npm prune",
