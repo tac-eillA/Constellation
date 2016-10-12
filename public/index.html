@@ -16,6 +16,39 @@
 
 	</head>
 	<body class="is-loading">
+	<style>
+	a.button-collapse.top-nav {
+		position: absolute;
+		text-align: center;
+		height: 60px;
+		width: 48px;
+		left: 7.5%;
+		top: 2px;
+		float: none;
+		margin-left: 1.5rem;
+		color: #fff;
+		font-size: 32px;
+		z-index: 2;
+	}
+	ul.side-nav.fixed li.logo {
+		text-align: center;
+		margin-top: 16px;
+		margin-bottom: 32px;
+		border-bottom: 1px solid rgba(221, 221, 221, 0);
+	}
+	.top-nav {
+		background: url("/styles/img/home.jpg") no-repeat center center fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+</style>
+<script>
+		$(document).ready(function(){
+			$('ul.tabs').tabs();
+		});
+	</script>
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -26,22 +59,39 @@
 							<span class="avatar"><img src="http://trevorsnodgrass.com/images/constellation.png" alt="" /></span>
 							<h1>Constellation</h1>
 
+
                             <hr />
 
-                            <div id="basic-info">
+
+                        <div id="login">
 						<h2>Login</h2>
-						<form method="post" action="login" id="frm1">
+						<form method="post" action="auth" id="frm1">
 							<div class="field">
 								<input type="text" name="username" id="username" placeholder="Username" required/>
 							</div>
 							<div class="field">
 								<input type="password" name="password" id="password" placeholder="Password" required/>
 							</div>
-                            <input type="submit" value="Submit">
+                            <input type="submit" value="Login">
 						</form>
                         </div>
-						</header>
+						<div id="signup">
+						<h2>Sign Up</h2>
+						<form method="post" action="api/v1/users" id="frm1">
+							<div class="field">
+								<input type="text" name="username" id="username" placeholder="Username" required/>
+							</div>
+							<div class="field">
+								<input type="email" name="emailAddress" id="emailAddress" placeholder="Email Address" required/>
+							</div>
+							<div class="field">
+								<input type="password" name="password" id="password" placeholder="Password" required/>
+							</div>
+                            <input type="submit" value="Sign Up">
+						</form>
+                        </div>
 
+						</header>
 					</section>
 
 				<!-- Footer -->
@@ -61,6 +111,7 @@
 					document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
 				}
 			</script>
+
 
 
 	</body>
