@@ -78,7 +78,7 @@ To run the Backend (on a mac at least) run from the base Constellation directory
 
 > **source runBackend**
 
-> In addition, PostgreSQL must already be installed with the database information for your Postgres database in the postgres-config.js file
+> In addition, The Java backend does not require PosgresSQL to be installed, PostgreSQL must already be installed with the database information for your Postgres database in the postgres-config.js file to use the node database.
 
 # Contributing
 
