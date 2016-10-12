@@ -27,6 +27,27 @@ This project is built on top of Node JS, Express, VueJS, and PostgreSQL to make 
 ### Install and Run ([OpenShift](https://www.openshift.com/))
 * UPDATE LATER
 
+# Installation using Docker
+
+If you want to use Docker to run and test this application, we have included a Dockerfile to do so.
+
+> Note that you must have docker installed and setup in order to use this so unless you are comfortable with using docker I would simply use the standard node js setup for testing. Eventually we will release a better integrated Docker version of this application.
+
+
+Once you have Docker installed and setup, run the following line in terminal from the project root:
+
+> **$ docker build -t constellation .**
+
+This will build your docker image which can be run using the following command:
+
+> **$ docker run -p 8080:3000 -d constellation**
+
+This runs your docker image with the name constellation and binds the port 3000 within your docker image to port 8080 on your local machine.
+
+# Using a Java based backend
+
+We know not all devs like Javascript, so for that reason we have also included a java version of the backend that is still a work in progress. Eventually seperate version of the front end will be created to handle those calls and the repository will reflect that there are two versions of the system. At the moment we recommend just using the node js version of the api
+
 The backend uses maven for its dependency management so if maven is installed and you are in the folder Backend
 
 > **mvn clean install**
@@ -55,23 +76,6 @@ To run the Backend (on a mac at least) run from the base Constellation directory
 > **source runBackend**
 
 > In addition, PostgreSQL must already be installed with the database information for your Postgres database in the postgres-config.js file
-
-# Installation using Docker
-
-If you want to use Docker to run and test this application, we have included a Dockerfile to do so.
-
-> Note that you must have docker installed and setup in order to use this so unless you are comfortable with using docker I would simply use the standard node js setup for testing. Eventually we will release a better integrated Docker version of this application.
-
-
-Once you have Docker installed and setup, run the following line in terminal from the project root:
-
-> **$ docker build -t username/constellation .**
-
-This will build your docker image which can be run using the following command:
-
-> **$ docker run -p 8080:3000 -d username/constellation**
-
-This runs your docker image with the name constellation and binds the port 3000 within your docker image to port 8080 on your local machine.
 
 # Contributing
 
