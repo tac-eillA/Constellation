@@ -14,7 +14,7 @@
   "scripts": {
     "start": "npm run npm:prune && npm run npm:install && npm run server",
     "dev": "npm run npm:prune && npm run npm:install && npm run genApiDocs && npm run db:schema && npm run server",
-    "test": "npm run routes:test",
+    "test": "npm run npm:prune && npm run npm:install && npm run routes:test",
     "build": "npm run npm:prune && npm run npm:install && npm run genApiDocs && npm run db:schema && npm run server",
     "genApiDocs": "./node_modules/.bin/apidoc -i routes/ -o public/api_docs/",
     "npm:prune": "npm prune",
@@ -42,13 +42,17 @@
     "pg": "^4.5.5",
     "pg-hstore": "^2.3.2",
     "sequelize": "^3.24.1",
-    "serve-static": "^1.10.2",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "serve-static": "^1.10.2"
   },
   "devDependencies": {
     "apidoc": "^0.16.1",
     "chai": "^3.5.0",
     "mocha": "^2.4.5",
     "sinon": "^1.17.4"
+  },
+  "repository": {
+    "url": "https://github.com/tsnodgrass96/Constellation.git",
+    "type": "git"
   }
 }
