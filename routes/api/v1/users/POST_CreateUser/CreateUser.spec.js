@@ -119,7 +119,7 @@ describe('API v1', function() {
 
             it('should have an object located in the data (Array) property of the JSON response.', function(done) {
                 GetAllUsers(req, res, function() {
-                    expect(res.json.args[0][0].data[0]).to.not.be.undefined;
+                    expect(res.json.args[0][0].data[0]).to.exist;
 
                     // Issue the callback to let the system know that the test is finished.
                     return done();
@@ -128,7 +128,7 @@ describe('API v1', function() {
 
             it('should have the id property of the user object in the data property of the JSON response.', function(done) {
                 GetAllUsers(req, res, function() {
-                    expect(res.json.args[0][0].data[0].id).to.not.be.undefined;
+                    expect(res.json.args[0][0].data[0].id).to.exist;
 
                     // Issue the callback to let the system know that the test is finished.
                     return done();
@@ -137,7 +137,7 @@ describe('API v1', function() {
 
             it('should have the username property of the user object in the data property of the JSON response.', function(done) {
                 GetAllUsers(req, res, function() {
-                    expect(res.json.args[0][0].data[0].username).to.not.be.undefined;
+                    expect(res.json.args[0][0].data[0].username).to.exist;
 
                     // Issue the callback to let the system know that the test is finished.
                     return done();
@@ -146,7 +146,7 @@ describe('API v1', function() {
 
             it('should have the emailAddress property of the user object in the data property of the JSON response.', function(done) {
                 GetAllUsers(req, res, function() {
-                    expect(res.json.args[0][0].data[0].emailAddress).to.not.be.undefined;
+                    expect(res.json.args[0][0].data[0].emailAddress).to.exist;
 
                     // Issue the callback to let the system know that the test is finished.
                     return done();
