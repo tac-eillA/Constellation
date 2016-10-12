@@ -183,7 +183,15 @@ describe('API v1', function() {
                 });
             });
 
+            it('should return an error object if the emailAddress is empty.', function(done) {
+                req.body.emailAddress = '';
 
+                GetAllUsers(req, res, function(e) {
+                    expect(e).to.exist;
+
+                    return done();
+                });
+            });
         });
     });
 });
