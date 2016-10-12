@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Constellation by tsnodgrass96</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Constellation</h1>
+      <h2 class="project-tagline">Platform designed to aid those working in education by automating some of their day to day tasks</h2>
+      <a href="https://github.com/tsnodgrass96/Constellation" class="btn">View on GitHub</a>
+      <a href="https://github.com/tsnodgrass96/Constellation/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/tsnodgrass96/Constellation/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="constellation" class="anchor" href="#constellation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Constellation</h1>
+
+<p><img src="http://trevorsnodgrass.com/images/constellation.png" alt="Constellation Logo"></p>
+
+<p><img src="https://travis-ci.org/tsnodgrass96/Constellation.svg?branch=master" alt="Travis Build Status"></p>
+
+<p><strong>Constellation</strong> is an open source platform for building easy to use and update scheduling systems for schools.  </p>
+
+<p>This project is built on top of Node JS, Express, VueJS, and PostgreSQL to make editing and tailoring easy for programmers both experienced and new. We also strive to keep the user interface as simple as possible, therefore little to no base CSS is provided to allow customization without worry of overrides. (This may change as I get tired of how base html input boxes look)</p>
+
+<h1>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h1>
+
+<h3>
+<a id="installation-pre-requisites" class="anchor" href="#installation-pre-requisites" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation Pre-requisites</h3>
+
+<ul>
+<li>You have the <a href="https://nodejs.org/en/download/releases/">latest v4.x.x of Node.js</a> installed.</li>
+<li>Ensure that you have the connection information for the PostgreSQL database for the application (either remote or local).</li>
+<li>Ensure that your database's service account has full access to the database.</li>
+</ul>
+
+<h3>
+<a id="install-and-run-local-only-development" class="anchor" href="#install-and-run-local-only-development" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install and Run (local-only development)</h3>
+
+<ol>
+<li>Clone the repository.</li>
+<li>Create the PostgreSQL configuration file:
+
+<ol>
+<li>Create a copy of the default PostgreSQL config file: <code>/dir_to_codebase/config/postgres-config.default.js</code>
+</li>
+<li>Rename the copy to <code>postgres-config.js</code> and place it into the same directory (<code>/dir_to_codebase/config/</code>).</li>
+<li>Modify the <code>postgres-config.js</code> file and add your database's configuration information.</li>
+</ol>
+</li>
+<li>Create the server configuration file:
+
+<ol>
+<li>Create a copy of the default server config file: <code>/dir_to_codebase/config/server-config.default.js</code>
+</li>
+<li>Rename the copy to <code>server-config.js</code> and place it into the same directory (<code>/dir_to_codebase/config/</code>).</li>
+<li>Modify the <code>server-config.js</code> file and add your server's hostname and port information.</li>
+</ol>
+</li>
+<li>Open a Node.js Command Prompt and run the following command:
+
+<ul>
+<li><code>npm run dev</code></li>
+</ul>
+</li>
+</ol>
+
+<h3>
+<a id="install-and-run-openshift" class="anchor" href="#install-and-run-openshift" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install and Run (<a href="https://www.openshift.com/">OpenShift</a>)</h3>
+
+<ul>
+<li>UPDATE LATER</li>
+</ul>
+
+<h1>
+<a id="installation-using-docker" class="anchor" href="#installation-using-docker" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation using Docker</h1>
+
+<p>If you want to use Docker to run and test this application, we have included a Dockerfile to do so.</p>
+
+<blockquote>
+<p>Note that you must have docker installed and setup in order to use this so unless you are comfortable with using docker I would simply use the standard node js setup for testing. Eventually we will release a better integrated Docker version of this application.</p>
+</blockquote>
+
+<p>Once you have Docker installed and setup, run the following line in terminal from the project root:</p>
+
+<blockquote>
+<p><strong>$ docker build -t constellation .</strong></p>
+</blockquote>
+
+<p>This will build your docker image which can be run using the following command:</p>
+
+<blockquote>
+<p><strong>$ docker run -p 8080:3000 -d constellation</strong></p>
+</blockquote>
+
+<p>This runs your docker image with the name constellation and binds the port 3000 within your docker image to port 8080 on your local machine.</p>
+
+<h1>
+<a id="using-a-java-based-backend" class="anchor" href="#using-a-java-based-backend" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using a Java based backend</h1>
+
+<p>We know not all devs like Javascript, so for that reason we have also included a java version of the backend that is still a work in progress. Eventually seperate version of the front end will be created to handle those calls and the repository will reflect that there are two versions of the system. At the moment we recommend just using the node js version of the api</p>
+
+<p>The backend uses maven for its dependency management so if maven is installed and you are in the folder Backend</p>
+
+<blockquote>
+<p><strong>mvn clean install</strong></p>
+</blockquote>
+
+<p>if you do not have the postgres docker image instance run</p>
+
+<blockquote>
+<p><strong>docker pull postgres</strong></p>
+</blockquote>
+
+<p>To start the postgres instance the first time only run</p>
+
+<blockquote>
+<p><strong>docker run -i -t -p 5432:5432 --name postgres-db postgres</strong></p>
+</blockquote>
+
+<h1>
+<a id="backend-commands" class="anchor" href="#backend-commands" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Backend commands</h1>
+
+<p>To stop the postgres docker image run</p>
+
+<blockquote>
+<p><strong>docker stop postgres-db</strong></p>
+</blockquote>
+
+<p>To start the postgres docker image run</p>
+
+<blockquote>
+<p><strong>docker start postgres-db</strong></p>
+</blockquote>
+
+<p>To run the Backend (on a mac at least) run from the base Constellation directory.</p>
+
+<blockquote>
+<p>Note The easiest way to test it would be to run it from your IDE This is for deployment and for people who insist on making their lives difficult. With windows just follow the command in the file runBackend. the easiest way to stop the applications would be to type "jobs" and then fg each process and terminate it by hitting ^C.</p>
+
+<p><strong>source runBackend</strong></p>
+
+<p>In addition, PostgreSQL must already be installed with the database information for your Postgres database in the postgres-config.js file</p>
+</blockquote>
+
+<h1>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing</h1>
+
+<p>I am more than happy to welcome anyone and everyone who wants to contribute to this project. To do so, just fork the respository, create your changes, and submit a pull request back.</p>
+
+<p>All pull requests will be reviewed and accepted by myself and I will try to get to them as soon as humanly possible (so I apologise if it takes a few hours for me to accept your request)</p>
+
+<blockquote>
+<p>Everyone who creates a pull request is more than welcome to add their name, position, company, etc to the Contributors.md file so that your work is noted. Regardless anyone with an accepted pull request will be added.</p>
+</blockquote>
+
+<h2>
+<a id="things-that-need-to-be-done" class="anchor" href="#things-that-need-to-be-done" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Things that need to be done</h2>
+
+<p>If you do want to contribute or are already contributing to this project here are a list of open issues/things that need to be done in order to continue onto the next stage.</p>
+
+<ol>
+<li>Login verification (so that user's can't just do to /dash to enter the dashboard without putting in a valid username and password.</li>
+<li>A way for sysadmins to easily be able to add classes, students, etc via a csv</li>
+<li>The actual dashboard design</li>
+<li>Database queries within the core node app</li>
+<li>implement Weighted Constraint Satisfaction to create the schedule.</li>
+<li>If you think of anything else you are more than welcome to open an issue</li>
+</ol>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/tsnodgrass96/Constellation">Constellation</a> is maintained by <a href="https://github.com/tsnodgrass96">tsnodgrass96</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
