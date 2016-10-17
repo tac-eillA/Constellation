@@ -4,6 +4,7 @@
 ![Travis Build Status](https://travis-ci.org/tsnodgrass96/Constellation.svg?branch=master)
 [![Slack Status](http://slack.trevorsnodgrass.com/badge.svg)](http://slack.trevorsnodgrass.com)
 [![appveyor status](https://ci.appveyor.com/api/projects/status/of18ye8yugn15bqg/branch/master?svg=true)](https://ci.appveyor.com/project/tsnodgrass96/constellation/branch/master)
+[![CircleCI](https://circleci.com/gh/tsnodgrass96/Constellation/tree/master.svg?style=svg)](https://circleci.com/gh/tsnodgrass96/Constellation/tree/master)
 
 
 
