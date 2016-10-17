@@ -1,3 +1,5 @@
 language: node_js
 node_js:
   - "4"
+notifications:
+  slack: constellation-oss:0V4bKDovNAMjcNMgmNGlygn7
