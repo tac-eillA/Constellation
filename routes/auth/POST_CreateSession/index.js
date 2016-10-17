@@ -17,6 +17,8 @@ module.exports = function(req, res, next) {
         message: 'Authentication successful.'
     });
 
+    res.redirect("dash.html");
+
     // Call the callback function to proceed to the next functionality in the Express pipeline.
     return next();
 };
