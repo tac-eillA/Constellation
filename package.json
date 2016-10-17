@@ -1,7 +1,7 @@
 {
   "name": "constellation",
   "description": "platform for creating an automatic scheduling system for students that is easily customizable for individual schools and districts",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "main": "server.js",
   "author": "Trevor Snodgrass",
