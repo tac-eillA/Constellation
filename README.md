@@ -29,7 +29,7 @@ This project is built on top of Node JS, Express, Vue JS, and PostgreSQL to make
     2. Rename the copy to `server-config.js` and place it into the same directory (`/dir_to_codebase/config/`).
     3. Modify the `server-config.js` file and add your server's hostname and port information.
 4. Open a Node.js Command Prompt and run the following command:
-    * `npm run dev`
+    * `npm run dev` or `yarn run dev`
 
 ### Install and Run ([OpenShift](https://www.openshift.com/))
 * UPDATE LATER
