@@ -33,6 +33,9 @@
   								{{ message }} <br />
 								{{ secondMess }} <br />
 								<pre>{{ thirdMess }}</pre>
+								<div id="inapp">
+									{{ forthMess }}
+								</div>
 							</div>
 						</header>
 
@@ -48,7 +51,6 @@
 			</div>
 
 			<!-- Scripts -->
-			<!--[if lte IE 8]><script src="assets/js/respond.min.js"></script><![endif]-->
 			<script>
 				if ('addEventListener' in window) {
 					window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
@@ -61,11 +63,17 @@
 				data: {
 					message: 'Hello ',
 					secondMess: 'This will be the user dashboard.',
-					thirdMess: "From here staff will be able to manage their students schedules, course overrides, etc."
+					thirdMess: "From here staff will be able to manage their students schedules, course overrides, etc.",
+					forthMess: "Sparkling water is absolutely wonderful"
 				}
 			});
 			</script>
 
+			<style>
+				#app {
+					text-align: right;
+				}
+			</style>
 
 	</body>
 
