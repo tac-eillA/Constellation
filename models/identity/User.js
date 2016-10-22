@@ -28,7 +28,7 @@ module.exports = function(sequelize, DataTypes) {
                 }
             },
             emailAddress: {
-                type: DataTypes.STRING,
+                type: DataTypes.STRING(255),
                 field: 'email_address',
                 unique: true,
                 allowNull: false,
@@ -58,9 +58,9 @@ module.exports = function(sequelize, DataTypes) {
                         id: this.getDataValue('id'),
                         username: this.getDataValue('username'),
                         emailAddress: this.getDataValue('emailAddress'),
-                        createdAt: this.getDataValue('created_ts'),
-                        lastModifiedAt: this.getDataValue('last_modified_ts'),
-                        deletedAt: this.getDataValue('deleted_ts')
+                        createdTs: this.getDataValue('created_ts'),
+                        lastModifiedTs: this.getDataValue('last_modified_ts'),
+                        deletedTs: this.getDataValue('deleted_ts')
                     };
                 }
             }
