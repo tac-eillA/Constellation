@@ -10,7 +10,7 @@ var req,
     res;
 
 // Require the route so that we can call the function and test its response.
-const GetAllUsers = require('./index.js');
+const CreateUser = require('./index.js');
 
 // Create an array with a couple of users so that we can test if it throws an error if you attempt to create a user with an emailAddress or username that already exists.
 const currentUsers = [
@@ -99,7 +99,7 @@ describe('API v1', function() {
 
             it('should call the res.status() function if all of the required parameters are defined, not null, and not empty.', function(done) {
                 // Call the route's function...
-                GetAllUsers(req, res, function() {
+                CreateUser(req, res, function() {
                     expect(res.status.calledOnce).to.equal(true);
 
                     // Issue the callback to let the system know that the test is finished.
@@ -109,7 +109,7 @@ describe('API v1', function() {
 
             it('should call the res.json() function if all of the required parameters are defined, not null, and not empty.', function(done) {
                 // Call the route's function...
-                GetAllUsers(req, res, function() {
+                CreateUser(req, res, function() {
                     expect(res.json.calledOnce).to.equal(true);
 
                     // Issue the callback to let the system know that the test is finished.
@@ -118,7 +118,7 @@ describe('API v1', function() {
             });
 
             it('should have an object located in the data (Array) property of the JSON response.', function(done) {
-                GetAllUsers(req, res, function() {
+                CreateUser(req, res, function() {
                     expect(res.json.args[0][0].data[0]).to.exist;
 
                     // Issue the callback to let the system know that the test is finished.
@@ -127,7 +127,7 @@ describe('API v1', function() {
             });
 
             it('should have the id property of the user object in the data property of the JSON response.', function(done) {
-                GetAllUsers(req, res, function() {
+                CreateUser(req, res, function() {
                     expect(res.json.args[0][0].data[0].id).to.exist;
 
                     // Issue the callback to let the system know that the test is finished.
@@ -136,7 +136,7 @@ describe('API v1', function() {
             });
 
             it('should have the username property of the user object in the data property of the JSON response.', function(done) {
-                GetAllUsers(req, res, function() {
+                CreateUser(req, res, function() {
                     expect(res.json.args[0][0].data[0].username).to.exist;
 
                     // Issue the callback to let the system know that the test is finished.
@@ -145,7 +145,7 @@ describe('API v1', function() {
             });
 
             it('should have the emailAddress property of the user object in the data property of the JSON response.', function(done) {
-                GetAllUsers(req, res, function() {
+                CreateUser(req, res, function() {
                     expect(res.json.args[0][0].data[0].emailAddress).to.exist;
 
                     // Issue the callback to let the system know that the test is finished.
@@ -156,7 +156,7 @@ describe('API v1', function() {
             it('should return an error object if the username is null.', function(done) {
                 req.body.username = null;
 
-                GetAllUsers(req, res, function(e) {
+                CreateUser(req, res, function(e) {
                     expect(e).to.exist;
 
                     return done();
@@ -166,7 +166,7 @@ describe('API v1', function() {
             it('should return an error object if the username is empty.', function(done) {
                 req.body.username = '';
 
-                GetAllUsers(req, res, function(e) {
+                CreateUser(req, res, function(e) {
                     expect(e).to.exist;
 
                     return done();
@@ -176,7 +176,7 @@ describe('API v1', function() {
             it('should return an error object if the emailAddress is null.', function(done) {
                 req.body.emailAddress = null;
 
-                GetAllUsers(req, res, function(e) {
+                CreateUser(req, res, function(e) {
                     expect(e).to.exist;
 
                     return done();
@@ -186,7 +186,7 @@ describe('API v1', function() {
             it('should return an error object if the emailAddress is empty.', function(done) {
                 req.body.emailAddress = '';
 
-                GetAllUsers(req, res, function(e) {
+                CreateUser(req, res, function(e) {
                     expect(e).to.exist;
 
                     return done();
