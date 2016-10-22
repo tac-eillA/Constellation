@@ -16,8 +16,7 @@ module.exports = function(req, res, next) {
      * @private
      */
     function _GetData() {
-        return req.models.identity.User.create(
-            {
+        return req.models.identity.User.create({
                 username: req.body.username,
                 emailAddress: req.body.emailAddress,
                 password: req.body.password
