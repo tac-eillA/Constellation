@@ -42,7 +42,7 @@ module.exports = function(sequelize, DataTypes) {
                 }
             },
             password: {
-                type: DataTypes.STRING,
+                type: DataTypes.STRING(60),
                 field: 'password',
                 allowNull: false,
                 validate: {
