@@ -96,7 +96,10 @@ module.exports = function(req, res, next) {
                 allowedSortFields = [
                     'id',
                     'username',
-                    'emailAddress'
+                    'emailAddress',
+                    'createdTs',
+                    'lastModifiedTs',
+                    'deletedTs'
                 ];
 
             // If the "sort" query parameter is not defined...
