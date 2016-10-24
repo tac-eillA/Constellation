@@ -20,6 +20,12 @@ describe('API v1', function() {
                 // Set the request and response objects equal to an empty object.
                 req = res = {};
 
+                // Create the query object.
+                req.query = {
+                    offset: 0,
+                    limit: 4
+                };
+
                 // Create the spies for the .json and .status functions.
                 res.json = sinon.spy();
                 res.status = sinon.spy();
@@ -32,7 +38,7 @@ describe('API v1', function() {
                 };
 
                 // Create the promise that mocks the Sequelize functionality to retrieve the necessary data from the database.
-                req.models.identity.user.findAndCountAll = function(obj) {
+                req.models.identity.User.findAndCountAll = function(obj) {
                     return new Promise(function(resolve, reject) {
                         let users = [
                             {
@@ -53,48 +59,19 @@ describe('API v1', function() {
                             }
                         ];
 
-                        // If the emailAddress is one of the requested fields...
-                        if(_.includes(obj.attributes, 'emailAddress')) {
-                            users[0].emailAddress = 'some.dude@example.com';
-                            users[1].emailAddress = 'some.lady@example.com';
-                            users[2].emailAddress = 'second.dude@example.com';
-                            users[3].emailAddress = 'second.lady@example.com';
-                        }
-
-                        // If the createdTs is one of the requested fields...
-                        if(_.includes(obj.attributes, 'createdTs')) {
-                            users[0].createdTs = '2016-10-22T03:53:40.298Z';
-                            users[1].createdTs = '2016-10-22T03:53:40.298Z';
-                            users[2].createdTs = '2016-10-22T03:53:40.298Z';
-                            users[3].createdTs = '2016-10-22T03:53:40.298Z';
-                        }
-
-                        // If the lastModifiedTs is one of the requested fields...
-                        if(_.includes(obj.attributes, 'lastModifiedTs')) {
-                            users[0].lastModifiedTs = '2016-10-22T03:53:40.298Z';
-                            users[1].lastModifiedTs = '2016-10-22T03:53:40.298Z';
-                            users[2].lastModifiedTs = '2016-10-22T03:53:40.298Z';
-                            users[3].lastModifiedTs = '2016-10-22T03:53:40.298Z';
-                        }
-
-                        // If the deletedTs is one of the requested fields...
-                        if(_.includes(obj.attributes, 'deletedTs')) {
-                            users[0].deletedTs = null;
-                            users[1].deletedTs = null;
-                            users[2].deletedTs = null;
-                            users[3].deletedTs = null;
-                        }
-
                         // Return the users based upon the offset and limit passed.
-                        users = _.slice(users, obj.offset, (obj.limit * obj.offset));
+                        let end = _.multiply(_.add(obj.offset, 1), obj.limit);
+                        let slicedUsers = _.slice(users, obj.offset, end);
 
-                        // If the
-                        //if(_.includes(obj.sort, ' asc'))
+                        // Add the "safeReturnObject" attribute with a copy of the data attributes to mock that attribute.
+                        _.forEach(slicedUsers, function(u) {
+                            u.safeReturnObj = _.clone(u);
+                        });
 
-                        // Return the resolved promise with the
+                        // Return the resolved promise with the data attributes needed.
                         return resolve({
                             count: _.size(users),
-                            rows: users
+                            rows: slicedUsers
                         });
                     });
                 };
@@ -103,19 +80,106 @@ describe('API v1', function() {
                 return next();
             });
 
-            xit('should call the res.status() function.', function(next) {
+            it('should call the res.status() function.', function(done) {
                 GetAllUsers(req, res, function() {
-                    expect(res.status.calledOnce).to.equal(true);
+                    try {
+                        expect(res.status.calledOnce).to.equal(true);
 
-                    return next();
+                        return done();
+                    }
+                    catch(err) {
+                        return done(err);
+                    }
                 });
             });
 
-            xit('should call the res.json() function.', function(next) {
+            it('should call the res.json() function.', function(done) {
                 GetAllUsers(req, res, function() {
-                    expect(res.json.calledOnce).to.equal(true);
+                    try {
+                        expect(res.json.calledOnce).to.equal(true);
 
-                    return next();
+                        return done();
+                    }
+                    catch(err) {
+                        return done(err);
+                    }
+                });
+            });
+
+            it('should return 2 records when the offset is 0 and the limit is 2.', function(done) {
+                req.query.offset = 0;
+                req.query.limit = 2;
+
+                GetAllUsers(req, res, function() {
+                    try {
+                        expect(_.size(res.json.args[0][0].data)).to.equal(2);
+
+                        return done();
+                    }
+                    catch(err) {
+                        return done(err);
+                    }
+                });
+            });
+
+            it('should return a count of 2 records when the offset is 0 and the limit is 2.', function(done) {
+                req.query.offset = 0;
+                req.query.limit = 2;
+
+                GetAllUsers(req, res, function() {
+                    try {
+                        expect(res.json.args[0][0].count).to.equal(2);
+
+                        return done();
+                    }
+                    catch(err) {
+                        return done(err);
+                    }
+                });
+            });
+
+            it('should throw an error if an un-allowed attribute is passed in the fields query parameter.', function(done) {
+                req.query.fields = 'newField';
+
+                GetAllUsers(req, res, function(e) {
+                    try {
+                        expect(e).to.exist;
+
+                        done();
+                    }
+                    catch(err) {
+                        done(err);
+                    }
+                });
+            });
+
+            it('should throw an error if neither a + nor - sign is used in front of the sort field.', function(done) {
+                req.query.sort = '#emailAddress';
+
+                GetAllUsers(req, res, function(e) {
+                    try {
+                        expect(e).to.exist;
+
+                        done();
+                    }
+                    catch(err) {
+                        done(err);
+                    }
+                });
+            });
+
+            it('should throw an error if an un-allowed field is used in the sort query field parameter.', function(done) {
+                req.query.sort = '+newField';
+
+                GetAllUsers(req, res, function(e) {
+                    try {
+                        expect(e).to.exist;
+
+                        done();
+                    }
+                    catch(err) {
+                        done(err);
+                    }
                 });
             });
         });
